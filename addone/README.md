@@ -1,7 +1,5 @@
 #魔改说明
 
----
-
 这个LNMP脚本为魔改版，由 <a href="https://github.com/hanzexu990323">@雨宮千夏</a> 修改
 
 安装完毕后将达到以下效果：
