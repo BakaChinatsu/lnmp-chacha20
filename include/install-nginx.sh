@@ -9,21 +9,21 @@ Install_Nginx()
     useradd -s /sbin/nologin -g www www
     
     cd ${cur_dir}/addone
-     wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
+    wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
     #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
     #wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
 
-     wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
-     wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
-     wget http://nginx.org/download/nginx-1.9.5.tar.gz
+    wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
+    wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
+    wget http://nginx.org/download/nginx-1.9.5.tar.gz
     
-    sudo tar zxvf libressl-2.3.0.tar.gz
+    tar zxvf libressl-2.3.0.tar.gz
 
-    sudo mkdir -p /usr/local/nginx/modules
-    sudo tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
-    sudo tar xvfvz 1.9.32.10.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --no-same-owner
-    sudo find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type d -exec chmod +rx {} \;
-    sudo find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type f -exec chmod +r {} \;
+    mkdir -p /usr/local/nginx/modules
+    tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
+    tar xvfvz 1.9.32.10.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --no-same-owner
+    find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type d -exec chmod +rx {} \;
+    find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type f -exec chmod +r {} \;
     
     tar zxf nginx-1.9.5.tar.gz
     cd nginx-1.9.5
