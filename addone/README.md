@@ -1,4 +1,4 @@
-这个LNMP脚本为魔改版，由 @雨宮千夏 修改，在安装前请执行以下命令
+这个LNMP脚本为魔改版，由 </a href="https://github.com/hanzexu990323">@雨宮千夏</a> 修改，在安装前请执行以下命令
 
 `sudo bash addon.sh`
 
