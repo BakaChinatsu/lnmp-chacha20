@@ -10,9 +10,6 @@ Install_Nginx()
     
     cd ${cur_dir}/addone
      wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
-    #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
-    #wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
-
      wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
      wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
      wget http://nginx.org/download/nginx-1.9.5.tar.gz
