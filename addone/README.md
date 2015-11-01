@@ -1,6 +1,7 @@
 这个LNMP脚本为魔改版，由 @雨宮千夏 修改，在安装前请执行以下命令
 
 `cd addone/`
+
 `sudo tar zxvf libresssl-2.3.0.tar.gz`
 
 `sudo mkdir -p /usr/local/nginx/modules`
