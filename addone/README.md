@@ -1,6 +1,7 @@
 这个LNMP脚本为魔改版，由 @雨宮千夏 修改，在安装前请执行以下命令
 
 -------以下代码已被install-nginx.conf替代-------
+
 cd addone/
 sudo tar zxvf libresssl-2.3.0.tar.gz
 
@@ -9,6 +10,7 @@ sudo tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owne
 sudo tar xvfvz 1.9.32.10.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --no-same-owner
 sudo find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type d -exec chmod +rx {} \;
 sudo find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type f -exec chmod +r {} \;
+
 -------以上代码已被install-nginx.conf替代-------
 
 安装完毕后将达到以下效果：
