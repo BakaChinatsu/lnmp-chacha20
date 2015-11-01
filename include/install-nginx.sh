@@ -9,9 +9,10 @@ Install_Nginx()
     useradd -s /sbin/nologin -g www www
     
     cd ${cur_dir}/addone
-    #窝那里的GitHub被干扰了，所以把文件扔到自己的服务器上了qwq，如果你想使用原始地址，请取消下面一行的注释
-    #wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
-     wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
+     wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
+    #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
+    #wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
+
      wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
      wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
      wget http://nginx.org/download/nginx-1.9.5.tar.gz
