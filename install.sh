@@ -36,13 +36,14 @@ if [ "${DISTRO}" = "unknow" ]; then
 fi
 
 clear
-Echo_Red "+---------------------------------------------------------------------------------------------------------+"
-Echo_Red "| This version is NOT the Official version!! If you DON'T know what it means,Please use ctrl+c to EXIT!!! |"
-Echo_Red "+---------------------------------------------------------------------------------------------------------+"
-Echo_Red "|     Before  install, please  read  the  README.md   in ${cur_dir}/addone  first ! ! ! ! !               |"
-Echo_Red "+---------------------------------------------------------------------------------------------------------+"
-echo "|       Thanks for Future_Solo --> https://futures.moe and  Amamiya_Chinatsu --> https://uuz.moe          |"
-Echo_Red "+---------------------------------------------------------------------------------------------------------+"
+Echo_Red "+-------------------------------------------------------------------------+"
+Echo_Red "|              This version is NOT the Official version!!!                |"
+Echo_Red "|       If you DON'T know what it means,Please use ctrl+c to EXIT!!!      |"
+Echo_Red "+-------------------------------------------------------------------------+"
+Echo_Red "| Before install, please read the README.md in ${cur_dir}/addone first!!! |"
+Echo_Red "+-------------------------------------------------------------------------+"
+echo "|     Thanks for Futur Solo@futures.moe and Amamiya Chinatsu@uuz.moe      |"
+Echo_Red "+-------------------------------------------------------------------------+"
 echo " "
 echo " "
 echo "+------------------------------------------------------------------------+"
