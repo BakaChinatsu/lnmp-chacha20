@@ -7,7 +7,10 @@ Install_Nginx()
     Echo_Blue "Installing Nginx_1.9.5... "
     groupadd www
     useradd -s /sbin/nologin -g www www
-    
+
+    cd /etc/ssl/certs
+    openssl dhparam -out dhparam.pem 2048
+
     cd ${cur_dir}/addone
     wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
     #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
