@@ -7,5 +7,7 @@
 感谢：<a href="http://lnmp.org" target="_blank">LNMP一键安装包</a> <a href="https://www.futures.moe/" target="_blank">未来领域</a>
 
 
-2015-11-2：本脚本已在bandwagonhost.com的Ubuntu 14.04 x86_64系统上测试成功
+2015-11-02：本脚本已在bandwagonhost.com的Ubuntu 14.04 x86_64系统上测试成功
 另：使用bandwagonhost.com的Ubuntu 14.04 x86会遇到PHP编译失败的问题（与本脚本无关）
+
+2015-11-04: CentOS 7.1 64bit test passed
