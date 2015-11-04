@@ -17,13 +17,25 @@ Upgrade_Nginx()
     Nginx_Version=""
     echo "Current Nginx Version:${Cur_Nginx_Version}"
     echo "You can get version number from http://nginx.org/en/download.html"
-    read -p "Please enter nginx version you want, (example: 1.7.8 ): " Nginx_Version
+    read -p "Please enter nginx version you want, (example: 1.9.5 ): " Nginx_Version
     if [ "${Nginx_Version}" = "" ]; then
         echo "Error: You must enter a nginx version!!"
         exit 1
     fi
+
+    if [ "${Nginx_Version}" > "1.9.5" ]; then
+        echo "Current ngx_pagespeed Version:${Cur_Pgs_Version}"
+        echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
+        read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): " Pgs_Version
+    fi
+
+    if ["${Pgs_Version}" < "1.9.32.1"]; then
+        echo "Error: You must enter a pagespeed version or the version must > 1.9.32.1"
+        exit 1    
+        #statements
+    fi
     echo "+---------------------------------------------------------+"
-    echo "|    You will upgrade nginx version to ${Nginx_Version}"
+    echo "|    You will upgrade nginx version to ${Nginx_Version},with pagespeed ${Pgs_Version}"
     echo "+---------------------------------------------------------+"
 
     Press_Start
@@ -47,9 +59,13 @@ Upgrade_Nginx()
     echo "============================check files=================================="
 
     Tar_Cd nginx-${Nginx_Version}.tar.gz nginx-${Nginx_Version}
-    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
+    if ["${Nginx_Version}" < "1.9.5"]; then
+        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
     make
-
+    else
+        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+        #install if Nginx_Version > 1.9.5
+    fi
     mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.${Upgrade_Date}
     \cp objs/nginx /usr/local/nginx/sbin/nginx
     echo "Test nginx configure file..."
