@@ -24,7 +24,7 @@ LNMP_Ver='1.2'
 . include/mariadb.sh
 . include/php.sh
 #. include/nginx.sh
-. include/install-nginx.sh
+. include/nginx-chacha20.sh
 . include/apache.sh
 . include/end.sh
 
