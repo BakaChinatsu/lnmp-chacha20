@@ -86,7 +86,7 @@ Upgrade_Nginx()
     tar zxf nginx-${Nginx_Version}.tar.gz
 
     if ["${Nginx_Version}" < "1.9.5"]; then
-        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
+        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
     make
     else
         ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
