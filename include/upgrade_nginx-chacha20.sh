@@ -77,7 +77,8 @@ Upgrade_Nginx()
     fi
     echo "============================check files=================================="
 
-    Tar_Cd nginx-${Nginx_Version}.tar.gz nginx-${Nginx_Version}
+    cd ${cur_dir}/addone
+    tar zxf nginx-${Nginx_Version}.tar.gz nginx-${Nginx_Version}
     if ["${Nginx_Version}" < "1.9.5"]; then
         ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
     make
