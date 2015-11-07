@@ -28,13 +28,14 @@ Upgrade_Nginx()
         echo "Current ngx_pagespeed Version:${Cur_Pgs_Version}"
         echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
         read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): " Pgs_Version
-    fi
-
-    if ["${Pgs_Version}" < "1.9.32.10"]; then
+        if ["${Pgs_Version}" < "1.9.32.10"]; then
         echo "Error: You must enter a pagespeed version or the version must > 1.9.32.10"
         exit 1    
         #statements
     fi
+    else
+    fi
+
     echo "+---------------------------------------------------------+"
     echo "|    You will upgrade nginx version to ${Nginx_Version}   |"
 	echo "|              with pagespeed ${Pgs_Version}              |"
@@ -43,7 +44,7 @@ Upgrade_Nginx()
     Press_Start
 
     echo "============================check files=================================="
-    cd ${cur_dir}/src
+    cd ${cur_dir}/addone
     if [ -s nginx-${Nginx_Version}.tar.gz ]; then
         echo "nginx-${Nginx_Version}.tar.gz [found]"
     else
@@ -53,6 +54,22 @@ Upgrade_Nginx()
             echo "Download nginx-${Nginx_Version}.tar.gz successfully!"
         else
             echo "You enter Nginx Version was:"${Nginx_Version}
+            Echo_Red "Error! You entered a wrong version number, please check!"
+            sleep 5
+            exit 1
+        fi
+    fi
+
+        if [ -s v${Pgs_Version}-beta.tar.gz ]; then
+        echo "pagespeed,v${Nginx_Version}-beta.tar.gz [found]"
+    else
+        echo "Error: pagespeed,v${Nginx_Version}-beta.tar.gz not found!!!download now......"
+        wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v${Pgs_Version}.tar.gz
+        wget -c wget https://dl.google.com/dl/page-speed/psol/${Pgs_Version}.tar.gz
+        if [ $? -eq 0 ]; then
+            echo "Download pagespeed,v${Pgs_Version}-beta.tar.gz successfully!"
+        else
+            echo "You enter Pagespeed Version was:"v${Pgs_Version}-beta
             Echo_Red "Error! You entered a wrong version number, please check!"
             sleep 5
             exit 1
