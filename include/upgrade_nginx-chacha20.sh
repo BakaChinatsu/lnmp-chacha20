@@ -78,9 +78,13 @@ Upgrade_Nginx()
     echo "============================check files=================================="
 
     cd ${cur_dir}/addone
-    tar zxf v${Pgs_Version}-beta.tar.gz
-    tar zxf ${Pgs_Version}.tar.gz
+    tar xvfz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
+	tar xvfz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
+	find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type d -exec chmod +rx {} \;
+	find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type f -exec chmod +r {} \;
+
     tar zxf nginx-${Nginx_Version}.tar.gz
+
     if ["${Nginx_Version}" < "1.9.5"]; then
         ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module ${NginxMAOpt} ${Nginx_Modules_Arguments}
     make
