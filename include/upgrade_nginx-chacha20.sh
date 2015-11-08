@@ -25,16 +25,18 @@ Upgrade_Nginx()
     fi
 
     if [ "${Nginx_Version}" > "1.9.5" ]; then
+    Pgs_Version=""
         echo "Current ngx_pagespeed Version:${Cur_Pgs_Version}"
         echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
         read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): "Pgs_Version
+        fi
+        
         if ["${Pgs_Version}" < "1.9.32.10"]; then
         echo "Error: You must enter a pagespeed version or the version must > 1.9.32.10"
         exit 1    
         #statements
     fi
-    else
-    fi
+
 
     echo "+---------------------------------------------------------+"
     echo "|    You will upgrade nginx version to ${Nginx_Version}   |"
