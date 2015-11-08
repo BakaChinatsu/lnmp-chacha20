@@ -39,7 +39,7 @@ Upgrade_Nginx()
 
     echo "+---------------------------------------------------------+"
     echo "|    You will upgrade nginx version to ${Nginx_Version}   |"
-	echo "|              with pagespeed ${Pgs_Version}              |"
+    echo "|              with pagespeed ${Pgs_Version}              |"
     echo "+---------------------------------------------------------+"
 
     Press_Start
