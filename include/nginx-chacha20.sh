@@ -27,8 +27,14 @@ Install_Nginx()
     wget -c https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
     fi
     
-    wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
-    wget http://nginx.org/download/nginx-1.9.5.tar.gz
+    if [ -s libressl-2.3.0.tar.gz ]; then
+        echo "libressl-2.3.0.tar.gz [found]"
+    else
+        echo "Error: libressl-2.3.0.tar.gz not found!!!download now......"
+    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
+    fi
+    
+    wget -c http://nginx.org/download/nginx-1.9.5.tar.gz
     
     tar zxvf libressl-2.3.0.tar.gz
 
