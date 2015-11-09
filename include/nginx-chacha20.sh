@@ -24,7 +24,7 @@ Install_Nginx()
         echo "pagespeed_1.0.32.10.tar.gz [found]"
     else
         echo "Error: pagespeed_1.0.32.10.tar.gz not found!!!download now......"
-    wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
+    wget -c https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
     fi
     
     wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
