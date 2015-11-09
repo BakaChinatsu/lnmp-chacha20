@@ -4,7 +4,7 @@
 
 Install_Nginx()
 {
-    Echo_Blue "Installing Nginx_1.9.5... "
+    Echo_Blue "Installing Nginx_1.9.5 with Pagespeed-v1.9.32.10-beta,Libressl-2.3.0... "
     groupadd www
     useradd -s /sbin/nologin -g www www
 
@@ -12,11 +12,21 @@ Install_Nginx()
     openssl dhparam -out dhparam.pem 2048
 
     cd ${cur_dir}/addone
-    wget https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
+    if [ -s v1.9.32.10-beta.tar.gz ]; then
+        echo "pagespeed_v1.0.32.10-beta.tar.gz [found]"
+    else
+        echo "Error: pagespeed_v1.0.32.10-beta.tar.gz not found!!!download now......"
+        wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
+        fi
     #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
     #wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
-
+    if [ -s 1.9.32.10.tar.gz ]; then
+        echo "pagespeed_1.0.32.10.tar.gz [found]"
+    else
+        echo "Error: pagespeed_1.0.32.10.tar.gz not found!!!download now......"
     wget https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
+    fi
+    
     wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
     wget http://nginx.org/download/nginx-1.9.5.tar.gz
     
