@@ -34,9 +34,14 @@ Install_Nginx()
     wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
     fi
     
+    if [ -s nginx-1.9.5.tar.gz ]; then
+        echo "nginx-1.9.5.tar.gz [found]"
+    else
+        echo "Error: nginx-1.9.5.tar.gz not found!!!download now......"
     wget -c http://nginx.org/download/nginx-1.9.5.tar.gz
+    fi
     
-    tar zxvf libressl-2.3.0.tar.gz
+    tar zxf libressl-2.3.0.tar.gz
 
     mkdir -p /usr/local/nginx/modules
     tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
