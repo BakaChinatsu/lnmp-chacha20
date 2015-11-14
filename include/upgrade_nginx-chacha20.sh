@@ -5,7 +5,7 @@ Upgrade_Nginx()
     # You can add other modules arguments to nginx_modules_arguments variable#
     Nginx_Modules_Arguments=""
     Cur_Nginx_Version=`/usr/local/nginx/sbin/nginx -v 2>&1 | cut -c22-`
-    #Cur_Pgs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 276-284` #How to find out the current pagespeed vertion?#先这样测试一下。。 。
+    Cur_Pgs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 276-284` #How to find out the current pagespeed vertion?#先这样测试一下。。 。
     #Cur_Lbs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 217-221`
     if [ -s /usr/local/include/jemalloc/jemalloc.h ] && /usr/local/nginx/sbin/nginx -V 2>&1|grep -Eqi 'ljemalloc'; then
         NginxMAOpt="--with-ld-opt='-ljemalloc'"
@@ -23,13 +23,14 @@ Upgrade_Nginx()
         echo "Error: You must enter a nginx version!!"
         exit 1
 
-     #Pgs_Version=""
+     Pgs_Version=""
     #if [ "${Nginx_Version}" != "" ]; then
-        #echo "Current ngx_pagespeed Version:${Cur_Pgs_Version}"
-        #echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
-        #read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): " Pgs_Version
+    else
+        echo "Current ngx_pagespeed Version:${Cur_Pgs_Version}"
+        echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
+        read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): " Pgs_Version
         #fi
-       fi
+    fi
         
 #        if ["${Pgs_Version}" < "1.9.32.10"]; then
 #        echo "Error: You must enter a pagespeed version or the version must > 1.9.32.10"
