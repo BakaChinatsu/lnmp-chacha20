@@ -41,11 +41,12 @@ Upgrade_Nginx()
 
 Lbs_Version=""
 echo "Current Libressl Version:${Cur_Lbs_Version}"
-        echo "You can get version number from https://github.com/pagespeed/ngx_pagespeed/"
-        read -p "Please enter pagespeed version you want, (example: 1.9.32.10 ): " Pgs_Version
+        echo "You can get version number from http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/"
+        read -p "Please enter pagespeed version you want, (example: 2.3.0 ): " Lbs_Version
+        
     echo "+---------------------------------------------------------+"
     echo "|    You will upgrade nginx version to ${Nginx_Version}   |"
-    echo "|              with pagespeed ${Pgs_Version}              |"
+    echo "|            with pagespeed ${Pgs_Version} and Libressl ${Lbs_Version}   |"
     echo "+---------------------------------------------------------+"
 
     Press_Start
