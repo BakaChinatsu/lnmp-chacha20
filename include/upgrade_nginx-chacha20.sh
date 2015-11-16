@@ -83,6 +83,21 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
             exit 1
         fi
     fi
+    
+    if [ -s libressl-${Lbs_Version}.tar.gz ]; then
+        echo "Libressl,${Lbs_Version}.tar.gz [found]"
+    else
+        echo "Error: Libressl,${Lbs_Version}.tar.gz not found!!!download now......"
+        wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-${Lbs_Version}.tar.gz
+        if [ $? -eq 0 ]; then
+            echo "Download Libressl,${Lbs_Version}.tar.gz successfully!"
+        else
+            echo "You enter Libressl Version was:"${Lbs_Version}
+            Echo_Red "Error! You entered a wrong version number, please check!"
+            sleep 5
+            exit 1
+        fi
+    fi
     echo "============================check files=================================="
 
     cd ${cur_dir}/addone
