@@ -110,7 +110,7 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
 
     tar zxf nginx-${Nginx_Version}.tar.gz
 
-        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version}/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version} --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
         #install if Nginx_Version > 1.9.5
         
     mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.${Upgrade_Date}
