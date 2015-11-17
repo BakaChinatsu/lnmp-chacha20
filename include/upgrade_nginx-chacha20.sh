@@ -42,7 +42,7 @@ Upgrade_Nginx()
 Lbs_Version=""
 echo "Current Libressl Version:${Cur_Lbs_Version}"
         echo "You can get version number from http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/"
-        read -p "Please enter pagespeed version you want, (example: 2.3.0 ): " Lbs_Version
+        read -p "Please enter Libressl version you want, (example: 2.3.0 ): " Lbs_Version
         
     echo "+---------------------------------------------------------+"
     echo "|    You will upgrade nginx version to ${Nginx_Version}   |"
@@ -110,7 +110,7 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
 
     tar zxf nginx-${Nginx_Version}.tar.gz
 
-        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version} --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+        ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version}/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
         #install if Nginx_Version > 1.9.5
         
     mv /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.${Upgrade_Date}
@@ -121,5 +121,5 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
     make upgrade
     Echo_Green "======== upgrade nginx completed ======"
     echo "Program will display Nginx Version......"
-    /usr/local/nginx/sbin/nginx -v
+    /usr/local/nginx/sbin/nginx -V
 }
