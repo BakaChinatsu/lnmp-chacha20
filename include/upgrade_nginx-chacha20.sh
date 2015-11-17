@@ -73,11 +73,25 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
     else
         echo "Error: pagespeed,v${Nginx_Version}-beta.tar.gz not found!!!download now......"
         wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v${Pgs_Version}.tar.gz
-        wget -c https://dl.google.com/dl/page-speed/psol/${Pgs_Version}.tar.gz
         if [ $? -eq 0 ]; then
             echo "Download pagespeed,v${Pgs_Version}-beta.tar.gz successfully!"
         else
             echo "You enter Pagespeed Version was:"v${Pgs_Version}-beta
+            Echo_Red "Error! You entered a wrong version number, please check!"
+            sleep 5
+            exit 1
+        fi
+    fi
+
+if [ -s ${Pgs_Version}.tar.gz ]; then
+        echo "pagespeed,${Nginx_Version}.tar.gz [found]"
+    else
+        echo "Error: pagespeed,${Nginx_Version}.tar.gz not found!!!download now......"
+        wget -c https://dl.google.com/dl/page-speed/psol/${Pgs_Version}.tar.gz
+        if [ $? -eq 0 ]; then
+            echo "Download pagespeed,${Pgs_Version}.tar.gz successfully!"
+        else
+            echo "You enter Pagespeed Version was:"${Pgs_Version}
             Echo_Red "Error! You entered a wrong version number, please check!"
             sleep 5
             exit 1
