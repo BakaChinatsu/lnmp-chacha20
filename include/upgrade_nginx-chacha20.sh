@@ -102,10 +102,11 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
 
     cd ${cur_dir}/addone
     tar zxf libressl-${Lbs_Version}.tar.gz
-    tar xvfz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
-	tar xvfz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
-	find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type d -exec chmod +rx {} \;
-	find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type f -exec chmod +r {} \;
+    tar xfz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
+    tar xfz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
+
+    find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type d -exec chmod +rx {} \;
+    find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type f -exec chmod +r {} \;
 
     tar zxf nginx-${Nginx_Version}.tar.gz
 
