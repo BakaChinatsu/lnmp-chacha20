@@ -113,7 +113,6 @@ if [ -s ${Pgs_Version}.tar.gz ]; then
     fi
     echo "============================check files=================================="
 
-    cd ${cur_dir}/addone
     tar zxf libressl-${Lbs_Version}.tar.gz
     tar xfz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
     tar xfz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
@@ -123,7 +122,7 @@ if [ -s ${Pgs_Version}.tar.gz ]; then
 
     tar zxf nginx-${Nginx_Version}.tar.gz
 
-    cd nginx${Nginx_Version}
+    cd nginx-${Nginx_Version}
         ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version}/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
         #install if Nginx_Version > 1.9.5
         
