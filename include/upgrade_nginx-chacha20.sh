@@ -5,7 +5,7 @@ Upgrade_Nginx()
     # You can add other modules arguments to nginx_modules_arguments variable#
     Nginx_Modules_Arguments=""
     Cur_Nginx_Version=`/usr/local/nginx/sbin/nginx -v 2>&1 | cut -c22-`
-    Cur_Pgs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 276-284` #How to find out the current pagespeed vertion?#先这样测试一下。。 。
+    Cur_Pgs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 276-284` #先这样测试一下。。 。
     Cur_Lbs_Version=`/usr/local/nginx/sbin/nginx -V 2>&1 | cut -c 217-221`
     
     if [ -s /usr/local/include/jemalloc/jemalloc.h ] && /usr/local/nginx/sbin/nginx -V 2>&1|grep -Eqi 'ljemalloc'; then
@@ -23,7 +23,6 @@ Upgrade_Nginx()
     if [ "${Nginx_Version}" = "" ]; then
         echo "Error: You must enter a nginx version!!"
         exit 1
-
     fi
     
      Pgs_Version=""
@@ -124,6 +123,7 @@ if [ -s ${Pgs_Version}.tar.gz ]; then
 
     tar zxf nginx-${Nginx_Version}.tar.gz
 
+    cd nginx${Nginx_Version}
         ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl${Lbs_Version}/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
         #install if Nginx_Version > 1.9.5
         
