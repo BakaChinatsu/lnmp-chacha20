@@ -71,7 +71,7 @@ echo "Current Libressl Version:${Cur_Lbs_Version}"
         echo "pagespeed,v${Nginx_Version}-beta.tar.gz [found]"
     else
         echo "Error: pagespeed,v${Nginx_Version}-beta.tar.gz not found!!!download now......"
-        wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v${Pgs_Version}.tar.gz
+        wget https://github.com/pagespeed/ngx_pagespeed/archive/v${Pgs_Version}-beta.tar.gz
         if [ $? -eq 0 ]; then
             echo "Download pagespeed,v${Pgs_Version}-beta.tar.gz successfully!"
         else
