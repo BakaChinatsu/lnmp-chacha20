@@ -114,8 +114,8 @@ if [ -s ${Pgs_Version}.tar.gz ]; then
     echo "============================check files=================================="
 
     tar zxf libressl-${Lbs_Version}.tar.gz
-    tar xfz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
-    tar xfz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
+    tar xvfvz v${Pgs_Version}-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
+    tar xvfvz ${Pgs_Version}.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta --no-same-owner
 
     find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type d -exec chmod +rx {} \;
     find /usr/local/nginx/modules/ngx_pagespeed-${Pgs_Version}-beta/ -type f -exec chmod +r {} \;
