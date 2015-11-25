@@ -25,3 +25,5 @@
 另：使用bandwagonhost.com的Ubuntu 14.04 x86会遇到PHP编译失败的问题（与本脚本无关）
 
 2015-11-04: CentOS 7.1 64bit test passed
+
+2015-11-21: upgrade_nginx-chacha20.sh on Ubuntu 14.04 64bit test passed
