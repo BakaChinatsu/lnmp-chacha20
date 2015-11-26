@@ -86,7 +86,7 @@ if [ -s ${Pgs_Version}.tar.gz ]; then
         echo "pagespeed,${Nginx_Version}.tar.gz [found]"
     else
         echo "Error: pagespeed,${Nginx_Version}.tar.gz not found!!!download now......"
-        wget -c https://dl.google.com/dl/page-speed/psol/${Pgs_Version}.tar.gz
+        wget  https://dl.google.com/dl/page-speed/psol/${Pgs_Version}.tar.gz
         if [ $? -eq 0 ]; then
             echo "Download pagespeed,${Pgs_Version}.tar.gz successfully!"
         else
