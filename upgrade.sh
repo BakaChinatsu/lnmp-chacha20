@@ -41,7 +41,7 @@ Display_Upgrade_Menu()
 
 clear
 echo "+-----------------------------------------------------------------------+"
-echo "|            Upgrade script for LNMP V1.2, Written by Licess            |"
+echo "|            Upgrade script for LNMP V1.2-CHACHA20, Written by Licess            |"
 echo "+-----------------------------------------------------------------------+"
 echo "|     A tool to upgrade Nginx,MySQL/Mariadb,PHP for LNMP/LNMPA/LAMP     |"
 echo "+-----------------------------------------------------------------------+"
