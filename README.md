@@ -25,11 +25,11 @@
 
 3. 凭借 SPDY 和 PageSpeed 获得极高的页面加载速度
 
-4. 为百度等对HTTPS站点支持不好的搜索引擎进行单独优化
+4. 为百度等对 HTTPS 站点支持不好的搜索引擎进行单独优化
 
 5. 其它所见及所得的好处
 
-6. 无情的抛弃那些顽固不化的万年IE6和Android 2.3党
+6. 无情的抛弃那些顽固不化的万年 IE6 和 Android 2.3 党
 
 ## SPECIAL THANKS
 <a href="http://lnmp.org" target="_blank">LNMP一键安装包</a>
