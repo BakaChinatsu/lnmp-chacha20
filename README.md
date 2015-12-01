@@ -9,7 +9,7 @@
 
 `git clone https://github.com/hanzexu990323/lnmp-chacha20.git`
 
-`cd lnmp-chacha20 && cp -af * ../lnmp1.2 && rm -rf lnmp-chacha20`
+`cp -af lnmp-chacha20/* lnmp1.2/ && rm -rf lnmp-chacha20`
 
 `screen -S lnmp`
 
