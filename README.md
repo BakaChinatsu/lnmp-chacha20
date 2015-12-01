@@ -37,9 +37,12 @@
 <a href="https://www.futures.moe" target="_blank">未来领域</a>
 
 ## TEST RESULT
-2015-11-02：本脚本已在bandwagonhost.com的Ubuntu 14.04 x86_64系统上测试成功
+2015-11-02：本脚本已在bandwagonhost.com的Ubuntu 14.04 x86_64系统上测试 **成功**
+<br />
 另：使用bandwagonhost.com的Ubuntu 14.04 x86会遇到PHP编译失败的问题（与本脚本无关）
 
-2015-11-04: CentOS 7.1 64bit test passed
+2015-11-04: CentOS 7.1 x64 Test **Passed**
 
-2015-11-21: `upgrade_nginx-chacha20.sh` on Ubuntu 14.04 64bit test passed
+2015-11-21: `upgrade_nginx-chacha20.sh` on Ubuntu 14.04 64bit Test **Passed**
+
+2015-12-02: CentOS 6 x64 Test **Passed**
