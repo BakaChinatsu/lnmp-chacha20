@@ -5,7 +5,7 @@
 
 ## INSTALL
 
-`apt-get install screen`
+`apt-get install screen` or `yum install screen`
 
 `wget -c http://soft.vpser.net/lnmp/lnmp1.2.tar.gz && tar zxf lnmp1.2.tar.gz && rm lnmp1.2.tar.gz`
 
