@@ -40,7 +40,7 @@ Echo_Red "+---------------------------------------------------------------------
 Echo_Red "|              This version is NOT the Official version!!!                |"
 Echo_Red "|       If you DON'T know what it means, please press ctrl+c to EXIT!!!   |"
 Echo_Red "+-------------------------------------------------------------------------+"
-Echo_Red "|     Before installing, please read README.md in ${cur_dir}/addone!!!    |"
+Echo_Red "|     Before installing, please read README.md in ${cur_dir}!!!    |"
 Echo_Red "+-------------------------------------------------------------------------+"
 echo "|   Thanks to Futur Solo@futures.moe,Amamiya Chinatsu@uuz.moe and Mike Lei@mikelei.me   |"
 Echo_Red "+-------------------------------------------------------------------------+"
