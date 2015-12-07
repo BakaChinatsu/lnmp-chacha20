@@ -96,7 +96,7 @@ Install_Nginx()
     
     chown -R www:www /home/wwwroot/default
     mkdir -p /path/baka
-    #mkdir /usr/local/nginx/conf/vhost
+    cp -R  ${cur_dir}/conf/vhost /usr/local/nginx/conf
     
     if [ "${Stack}" = "lnmp" ]; then
     cat >/home/wwwroot/default/.user.ini<<EOF
