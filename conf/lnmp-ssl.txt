@@ -1,4 +1,6 @@
-echo "==========================="
+	echo "==========================="
     echo "Use SSL? (y/n)"
     echo "==========================="
-    read lnmp-ssl
+    read nginx_ssl
+    
+    if [ "${nginx_ssl}" == "n" ]; then
