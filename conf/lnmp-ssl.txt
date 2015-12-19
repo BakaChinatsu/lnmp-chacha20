@@ -3,4 +3,11 @@
     echo "==========================="
     read nginx_ssl
     
-    if [ "${nginx_ssl}" == "n" ]; then
+    if [ "${nginx_ssl}" == "y" ]; then
+    echo "Please enter the .key file's name"
+    read ssl_key
+    
+    echo "Please enter the .csr file's name"
+    read ssl_csr
+    
+    
