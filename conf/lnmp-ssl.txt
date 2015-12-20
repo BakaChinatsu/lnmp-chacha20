@@ -9,5 +9,46 @@
     
     echo "Please enter the .csr file's name"
     read ssl_csr
+	else 
+	 fi
+	
+	
+	if ["${nginx_ssl}" == "y"]; then
+	cat >/usr/local/nginx/conf/vhost/vhost-${domain}.conf<<EOF
+server
+    {
+        listen 80;
+        #listen [::]:80;
+        server_name ${domain}${moredomainame};
+        index index.html index.htm index.php default.html default.htm default.php;
+        root  ${vhostdir};
+
+        include ${rewrite}.conf;
+        #error_page   404   /404.html;
+        location ~ [^/]\.php(/|$)
+        {
+            # comment try_files \$uri =404; to enable pathinfo
+            try_files \$uri =404;
+            fastcgi_pass  unix:/tmp/php-cgi.sock;
+            fastcgi_index index.php;
+            include fastcgi.conf;
+            #include pathinfo.conf;
+        }
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        ${al}
+    }
+EOF
+
+else
     
     
