@@ -51,5 +51,77 @@ EOF
 
 	else
 	cat >/usr/local/nginx/conf/vhost/vhost-${domain}.conf<<EOF
+	server
+    {
+        #listen 80;
+        #listen [::]:80 ssl ipv6only=on;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2 ipv6only=on;
+        server_name example.com;
+        index index.html index.htm index.php;
+        root  /home/wwwroot/example_com;
+
+        ssl on;
+        ssl_certificate /etc/ssl/private/example_com.crt;
+        ssl_certificate_key /etc/ssl/private/example_com.key;
+        ssl_dhparam /etc/ssl/certs/dhparam.pem;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers CHACHA20:ECDHE:+ECDSA:+AES128:+AES256:+GCM:+SHA384:+aRSA:+SHA256:+HIGH:!aNULL:!eNULL:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS:!RC4;
+        ssl_prefer_server_ciphers on;
+        keepalive_timeout 70;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security max-age=63072000;
+        add_header X-Frame-Options DENY;
+        add_header X-Content-Type-Options nosniff;
+
+        pagespeed on;
+        pagespeed FileCachePath /usr/local/nginx/pagespeed_temp;
+        pagespeed RewriteLevel CoreFilters;
+        pagespeed EnableFilters local_storage_cache;
+        pagespeed EnableFilters collapse_whitespace,remove_comments;
+        pagespeed EnableFilters outline_css;
+        pagespeed EnableFilters flatten_css_imports;
+        pagespeed EnableFilters move_css_above_scripts;
+        pagespeed EnableFilters move_css_to_head;
+        pagespeed EnableFilters outline_javascript;
+        pagespeed EnableFilters combine_javascript;
+        pagespeed EnableFilters combine_css;
+        pagespeed EnableFilters rewrite_javascript;
+        pagespeed EnableFilters rewrite_css,sprite_images;
+        pagespeed EnableFilters rewrite_style_attributes;
+        pagespeed EnableFilters recompress_images;
+        pagespeed EnableFilters resize_images;
+        pagespeed EnableFilters convert_meta_tags;
+        location ~ "\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+" { add_header "" ""; }
+        location ~ "^/ngx_pagespeed_static/" { }
+        location ~ "^/ngx_pagespeed_beacon$" { }
+        location /ngx_pagespeed_statistics { allow 127.0.0.1; deny all; }
+        location /ngx_pagespeed_message { allow 127.0.0.1; deny all; }
+
+        #error_page   404   /404.html;
+        location ~ .*\.php(\/.*)*$
+        {
+            #comment try_files $uri =404; to enable pathinfo
+            try_files $uri =404;
+            fastcgi_pass  unix:/tmp/php-cgi.sock;
+            fastcgi_index index.php;
+            include fastcgi.conf;
+            #include pathinfo.conf;
+        }
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        access_log /home/wwwlogs/example_access.log;
+    }
+EOF
     
     
