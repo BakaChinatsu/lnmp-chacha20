@@ -49,6 +49,7 @@ server
     }
 EOF
 
-else
+	else
+	cat >/usr/local/nginx/conf/vhost/vhost-${domain}.conf<<EOF
     
     
