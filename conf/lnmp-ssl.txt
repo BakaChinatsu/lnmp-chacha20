@@ -53,8 +53,8 @@ EOF
 	cat >/usr/local/nginx/conf/vhost/vhost-${domain}.conf<<EOF
 	server
     {
-        #listen 80;
-        #listen [::]:80;
+        listen 80;
+        listen [::]:80;
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
         server_name ${domain};
