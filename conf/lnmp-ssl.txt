@@ -18,7 +18,7 @@
 server
     {
         listen 80;
-        #listen [::]:80;
+        listen [::]:80;
         server_name ${domain}${moredomainame};
         index index.html index.htm index.php default.html default.htm default.php;
         root  ${vhostdir};
@@ -60,6 +60,8 @@ EOF
         server_name ${domain};
         index index.html index.htm index.php;
         root  ${vhostdir};
+
+        include ${rewrite}.conf;
 
         ssl on;
         ssl_certificate /etc/ssl/private/${ssl_csr};
@@ -120,7 +122,7 @@ EOF
             expires      12h;
         }
 
-        access_log /home/wwwlogs/example_access.log;
+        ${al}
     }
 EOF
     
