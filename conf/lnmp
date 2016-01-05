@@ -159,6 +159,11 @@ Add_VHost()
         moredomainame=" ${moredomain}"
     fi
 
+	echo "==========================="
+    echo "Use SSL? (y/n)"
+    echo "==========================="
+    read nginx_ssl
+    
     vhostdir="/home/wwwroot/${domain}"
     echo "Please enter the directory for the domain: $domain"
     read -p "(Default directory: /home/wwwroot/${domain}): " vhostdir
