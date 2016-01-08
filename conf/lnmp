@@ -379,6 +379,7 @@ EOF
         ${al}
     }
 EOF
+fi
 
     cat >${vhostdir}/.user.ini<<EOF
 open_basedir=${vhostdir}:/tmp/:/proc/
