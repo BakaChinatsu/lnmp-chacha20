@@ -9,9 +9,11 @@
 
 `wget -c http://soft.vpser.net/lnmp/lnmp1.2.tar.gz && tar zxf lnmp1.2.tar.gz && rm lnmp1.2.tar.gz`
 
-`git clone https://github.com/hanzexu990323/lnmp-chacha20.git`
+`wget https://github.com/hanzexu990323/lnmp-chacha20/archive/v0.2.1.zip`
 
-`cp -af lnmp-chacha20/* lnmp1.2/ && rm -rf lnmp-chacha20`
+`unzip v0.2.1.zip `
+
+`cp -af lnmp-chacha20-0.2.1/* lnmp1.2/ && rm -rf lnmp-chacha20-0.2.1`
 
 `screen -S lnmp`
 
