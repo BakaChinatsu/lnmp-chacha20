@@ -19,6 +19,18 @@
 
 `cd lnmp1.2 && ./install.sh lnmp`
 
+##获取开发版
+
+`apt-get install screen` or `yum install screen`
+
+`wget -c http://soft.vpser.net/lnmp/lnmp1.2.tar.gz && tar zxf lnmp1.2.tar.gz && rm lnmp1.2.tar.gz`
+
+`git clone https://github.com/hanzexu990323/lnmp-chacha20.git`
+  
+ `cp -af lnmp-chacha20/* lnmp1.2/ && rm -rf lnmp-chacha20`
+  
+  `screen -S lnmp`
+
 ## NOTICE
 此脚本需要与<a href="http://lnmp.org" target="_blank">LNMP一键安装包</a>配合使用
 
