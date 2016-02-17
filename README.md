@@ -30,6 +30,8 @@
  `cp -af lnmp-chacha20/* lnmp1.2/ && rm -rf lnmp-chacha20`
   
   `screen -S lnmp`
+  
+  `cd lnmp1.2 && ./install.sh lnmp`
 
 ## NOTICE
 此脚本需要与<a href="http://lnmp.org" target="_blank">LNMP一键安装包</a>配合使用
