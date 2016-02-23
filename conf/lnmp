@@ -160,7 +160,7 @@ Add_VHost()
     fi
 
 	echo "==========================="
-    echo "Use SSL? (y/n)"
+    echo "Use SSL/TLS? (y/n)"
     echo "==========================="
     read nginx_ssl
     
@@ -170,9 +170,17 @@ Add_VHost()
     
     echo "Please enter the .csr file's name and copy the file to /etc/ssl/private/ "
     read ssl_csr
+    
+    echo "==========NOTE============="
+    HTTP Strict Transport Security (HSTS) can substantially improve the security of your website.
+    echo "==========================="
+    echo "Use HSTS ? (y/n)"
+    echo "==========================="
+    read nginx_hsts
 	else 
 	 fi
 	
+
     vhostdir="/home/wwwroot/${domain}"
     echo "Please enter the directory for the domain: $domain"
     read -p "(Default directory: /home/wwwroot/${domain}): " vhostdir
