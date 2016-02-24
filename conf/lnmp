@@ -172,13 +172,22 @@ Add_VHost()
     read ssl_csr
     
     echo "==========NOTE============="
-    HTTP Strict Transport Security (HSTS) can substantially improve the security of your website.
+    echo "HTTP Strict Transport Security (HSTS) can substantially improve the security of your website "
+    echo "==========NOTE============="
+    echo " "
     echo "==========================="
     echo "Use HSTS ? (y/n)"
     echo "==========================="
     read nginx_hsts
 	else 
 	 fi
+	
+	if [ "${nginx_hsts}" == "y" ]; then
+	echo "==========================="
+    echo  "If you need to disable HTTPS on your domain, you must first disable HSTS in your Domains vhost config files and wait for the max-age to lapse to guarantee that every browser is aware of this change before you can disable HTTPS.( You can set the max-age in the next step). If you remove HTTPS before disabling HSTS your website will become inaccessible to visitors for up to the max-age or until you support HTTPS again. Because disabling HTTPS on an HSTS enabled website can have these consequences, we strongly suggest that you have a committed HTTPS service in place before enabling this feature. "
+  
+	echo "==========================="
+	
 	
 
     vhostdir="/home/wwwroot/${domain}"
