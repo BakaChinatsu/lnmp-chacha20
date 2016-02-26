@@ -191,9 +191,15 @@ Add_VHost()
 	echo "Use HSTS ? (y/n)"
 	echo "==========================="
 	read nginx_hsts
-	
 	else
 	 fi
+	
+	if [ "${nginx_hsts}" == "y" ]; then
+	echo "==========================="
+	echo "Please enter Max Age Header (max-age)
+(Specify the duration HSTS headers are cached in browsers)"
+    echo "==========================="
+    read hsts_maxage
 	
 	
 
