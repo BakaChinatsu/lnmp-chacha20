@@ -321,7 +321,7 @@ Add_VHost()
         keepalive_timeout 70;
         ssl_session_cache shared:SSL:10m;
         ssl_session_timeout 10m;
-        add_header Strict-Transport-Security max-age=63072000;
+        add_header Strict-Transport-Security max-age=${hsts_maxage};
         add_header X-Frame-Options DENY;
         add_header X-Content-Type-Options nosniff;
 
@@ -487,6 +487,7 @@ server
     }
 EOF
 fi
+ fi
 
     cat >${vhostdir}/.user.ini<<EOF
 open_basedir=${vhostdir}:/tmp/:/proc/
