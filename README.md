@@ -35,7 +35,8 @@
 
 ## NOTICE
 此脚本需要与<a href="http://lnmp.org" target="_blank">LNMP一键安装包</a>配合使用
-安装完毕后，请将 '/home/wwwroot/default/p.php' 以及 '/home/wwwroot/default/phpinfo.php'移动至不容易被猜到的文件夹
+
+安装完毕后，请将 `/home/wwwroot/default/p.php` 以及 `/home/wwwroot/default/phpinfo.php` 移动至不容易被猜到的文件夹
 
 ## RESULT
 1. 使用 `CHACHA20-POLY1305` 加密方法作为首要加密方法，并启用 HSTS
