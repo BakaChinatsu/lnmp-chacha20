@@ -18,8 +18,6 @@ Install_Nginx()
         echo "Error: pagespeed_v1.0.32.10-beta.tar.gz not found!!!download now......"
         wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
         fi
-    #如果你那里的GitHub受到干扰，可以考虑换成下面的这个
-    #wget https://uuz.moe/download/v1.9.32.10-beta.tar.gz
     if [ -s 1.9.32.10.tar.gz ]; then
         echo "pagespeed_1.0.32.10.tar.gz [found]"
     else
@@ -27,11 +25,11 @@ Install_Nginx()
     wget -c https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
     fi
     
-    if [ -s libressl-2.3.0.tar.gz ]; then
-        echo "libressl-2.3.0.tar.gz [found]"
+    if [ -s libressl-2.4.1.tar.gz ]; then
+        echo "libressl-2.4.1.tar.gz [found]"
     else
-        echo "Error: libressl-2.3.0.tar.gz not found!!!download now......"
-    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.0.tar.gz
+        echo "Error: libressl-2.4.1.tar.gz not found!!!download now......"
+    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.1.tar.gz
     fi
     
     if [ -s nginx-1.9.5.tar.gz ]; then
@@ -41,7 +39,7 @@ Install_Nginx()
     wget -c http://nginx.org/download/nginx-1.9.5.tar.gz
     fi
     
-    tar zxf libressl-2.3.0.tar.gz
+    tar zxf libressl-2.4.1.tar.gz
 
     mkdir -p /usr/local/nginx/modules
     tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
