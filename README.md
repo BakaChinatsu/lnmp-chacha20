@@ -3,29 +3,13 @@
 ## WARNING!
 **本项目组不保证此魔改脚本可以稳定工作在所有Linux发行版上，因使用此脚本而导致的任何服务器宕机/冒烟以及数据损毁本项目组概不负责！**
 
-## INSTALL
-
-`apt-get install screen` or `yum install screen`
-
-`wget -c http://soft.vpser.net/lnmp/lnmp1.2.tar.gz && tar zxf lnmp1.2.tar.gz && rm lnmp1.2.tar.gz`
-
-`wget https://github.com/hanzexu990323/lnmp-chacha20/archive/v0.2.1.zip`
-
-`unzip v0.2.1.zip `
-
-`cp -af lnmp-chacha20-0.2.1/* lnmp1.2/ && rm -rf lnmp-chacha20-0.2.1`
-
-`screen -S lnmp`
-
-`cd lnmp1.2 && ./install.sh lnmp`
-
 ##获取开发版
 
 `apt-get install screen` or `yum install screen`
 
 `wget -c http://soft.vpser.net/lnmp/lnmp1.2.tar.gz && tar zxf lnmp1.2.tar.gz && rm lnmp1.2.tar.gz`
 
-`git clone https://github.com/hanzexu990323/lnmp-chacha20.git`
+`git clone https://github.com/BakaChinatsu/lnmp-chacha20.git`
   
  `cp -af lnmp-chacha20/* lnmp1.2/ && rm -rf lnmp-chacha20`
   
