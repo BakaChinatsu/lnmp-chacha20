@@ -4,7 +4,7 @@
 
 Install_Nginx()
 {
-    Echo_Blue "Installing Nginx_1.9.5 with Pagespeed-v1.9.32.10-beta,Libressl-2.3.0... "
+    Echo_Blue "Installing Nginx_1.9.5 with Pagespeed-v1.11.33.2-beta,Libressl-2.3.0... "
     groupadd www
     useradd -s /sbin/nologin -g www www
 
@@ -12,17 +12,17 @@ Install_Nginx()
     openssl dhparam -out dhparam.pem 2048
 
     cd ${cur_dir}/addone
-    if [ -s v1.9.32.10-beta.tar.gz ]; then
+    if [ -s v1.11.33.2-beta.tar.gz ]; then
         echo "pagespeed_v1.0.32.10-beta.tar.gz [found]"
     else
         echo "Error: pagespeed_v1.0.32.10-beta.tar.gz not found!!!download now......"
-        wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.9.32.10-beta.tar.gz
+        wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.11.33.2-beta.tar.gz
         fi
-    if [ -s 1.9.32.10.tar.gz ]; then
+    if [ -s 1.11.33.2.tar.gz ]; then
         echo "pagespeed_1.0.32.10.tar.gz [found]"
     else
         echo "Error: pagespeed_1.0.32.10.tar.gz not found!!!download now......"
-    wget -c https://dl.google.com/dl/page-speed/psol/1.9.32.10.tar.gz
+    wget -c https://dl.google.com/dl/page-speed/psol/1.11.33.2.tar.gz
     fi
     
     if [ -s libressl-2.4.1.tar.gz ]; then
@@ -42,15 +42,15 @@ Install_Nginx()
     tar zxf libressl-2.4.1.tar.gz
 
     mkdir -p /usr/local/nginx/modules
-    tar xvfvz v1.9.32.10-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
-    tar xvfvz 1.9.32.10.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --no-same-owner
-    find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type d -exec chmod +rx {} \;
-    find /usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta/ -type f -exec chmod +r {} \;
+    tar xvfvz v1.11.33.2-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
+    tar xvfvz 1.11.33.2.tar.gz -C /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --no-same-owner
+    find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type d -exec chmod +rx {} \;
+    find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type f -exec chmod +r {} \;
     
     tar zxf nginx-1.9.5.tar.gz
     cd nginx-1.9.5
-    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
-    #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.9.32.10-beta
+    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+    #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta
     make && make install
     cd ../
     
