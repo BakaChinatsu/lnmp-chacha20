@@ -4,7 +4,7 @@
 
 Install_Nginx()
 {
-    Echo_Blue "Installing Nginx_1.9.5 with Pagespeed-v1.11.33.2-beta,Libressl-2.3.0... "
+    Echo_Blue "Installing Nginx_1.10.0 with Pagespeed-v1.11.33.2-beta,Libressl-2.3.0... "
     groupadd www
     useradd -s /sbin/nologin -g www www
 
@@ -13,15 +13,15 @@ Install_Nginx()
 
     cd ${cur_dir}/addone
     if [ -s v1.11.33.2-beta.tar.gz ]; then
-        echo "pagespeed_v1.0.32.10-beta.tar.gz [found]"
+        echo "pagespeed_v1.11.33.2-beta.tar.gz [found]"
     else
-        echo "Error: pagespeed_v1.0.32.10-beta.tar.gz not found!!!download now......"
+        echo "Error: pagespeed_v1.11.33.2-beta.tar.gz not found!!!download now......"
         wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.11.33.2-beta.tar.gz
         fi
     if [ -s 1.11.33.2.tar.gz ]; then
-        echo "pagespeed_1.0.32.10.tar.gz [found]"
+        echo "pagespeed_1.11.33.2.tar.gz [found]"
     else
-        echo "Error: pagespeed_1.0.32.10.tar.gz not found!!!download now......"
+        echo "Error: pagespeed_1.11.33.2.tar.gz not found!!!download now......"
     wget -c https://dl.google.com/dl/page-speed/psol/1.11.33.2.tar.gz
     fi
     
@@ -32,11 +32,11 @@ Install_Nginx()
     wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.1.tar.gz
     fi
     
-    if [ -s nginx-1.9.5.tar.gz ]; then
-        echo "nginx-1.9.5.tar.gz [found]"
+    if [ -s nginx-1.10.0.tar.gz ]; then
+        echo "nginx-1.10.0.tar.gz [found]"
     else
-        echo "Error: nginx-1.9.5.tar.gz not found!!!download now......"
-    wget -c http://nginx.org/download/nginx-1.9.5.tar.gz
+        echo "Error: nginx-1.10.0.tar.gz not found!!!download now......"
+    wget -c http://nginx.org/download/nginx-1.10.0.tar.gz
     fi
     
     tar zxf libressl-2.4.1.tar.gz
@@ -47,8 +47,8 @@ Install_Nginx()
     find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type d -exec chmod +rx {} \;
     find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type f -exec chmod +r {} \;
     
-    tar zxf nginx-1.9.5.tar.gz
-    cd nginx-1.9.5
+    tar zxf nginx-1.10.0.tar.gz
+    cd nginx-1.10.0
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta
     make && make install
