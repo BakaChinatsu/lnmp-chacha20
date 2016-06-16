@@ -49,7 +49,7 @@ Install_Nginx()
     
     tar zxf nginx-1.10.0.tar.gz
     cd nginx-1.10.0
-    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.3.0/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.4.1/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta
     make && make install
     cd ../
