@@ -1,0 +1,8 @@
+wget https://downloads.php.net/\~krakjoe/php-7.1.0alpha1.tar.xz
+tar -Jxvf php-7.1.0alpha1.tar.xz
+cd php-7.1.0alpha1
+./configure --prefix=/opt/php --enable-fpm --enable-ftp --enable-zip\\n    --enable-soap --enable-wddx --enable-shmop --enable-pcntl --enable-bcmath --enable-sockets\\n    --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-calendar --enable-mbstring --enable-gd-native-ttf\\n    --enable-exif --with-xsl --with-bz2 --with-gmp --with-curl --with-zlib --with-mcrypt --with-mysqli\\n    --with-openssl --with-gettext --with-gd --with-xpm-dir --with-png-dir --with-jpeg-dir --with-freetype-dir
+make -j4
+make install
+
+mkdir -p /opt/php/var/sock

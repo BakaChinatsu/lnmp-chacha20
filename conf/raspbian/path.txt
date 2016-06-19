@@ -1,0 +1,2 @@
+php-fpm.conf --> /opt/php/etc/php-fpm.conf
+www.conf --> /opt/php/etc/php-fpm.d/www.conf
