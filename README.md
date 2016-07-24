@@ -53,4 +53,4 @@
 
 2015-12-02: CentOS 6 x64 Test **Passed**
 
-2016-17-24: DigitalOcean Ubuntu 14.04.4 x64 Test **Passed**
+2016-07-24: DigitalOcean Ubuntu 14.04.4 x64 Test **Passed**
