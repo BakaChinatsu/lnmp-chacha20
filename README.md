@@ -52,3 +52,5 @@
 2015-11-21: `upgrade_nginx-chacha20.sh` on Ubuntu 14.04 64bit Test **Passed**
 
 2015-12-02: CentOS 6 x64 Test **Passed**
+
+2016-17-24: DigitalOcean Ubuntu 14.04.4 x64 Test **Passed**
