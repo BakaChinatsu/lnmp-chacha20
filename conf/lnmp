@@ -179,8 +179,7 @@ Add_VHost()
     echo "Use HSTS ? (y/n)"
     echo "==========================="
     read nginx_hsts
-	else 
-	 fi
+	fi
 	
 	if [ "${nginx_hsts}" == "y" ]; then
 	echo "==========================="
@@ -191,8 +190,7 @@ Add_VHost()
 	echo "Use HSTS ? (y/n)"
 	echo "==========================="
 	read nginx_hsts
-	else
-	 fi
+	fi
 	
 	if [ "${nginx_hsts}" == "y" ]; then
 	echo "==========================="
@@ -200,8 +198,7 @@ Add_VHost()
 (Specify the duration HSTS headers are cached in browsers)"
     echo "==========================="
     read hsts_maxage
-    else
-     fi
+    fi
 	
 	
 
@@ -488,7 +485,6 @@ server
     }
 EOF
 fi
- fi
 
     cat >${vhostdir}/.user.ini<<EOF
 open_basedir=${vhostdir}:/tmp/:/proc/
