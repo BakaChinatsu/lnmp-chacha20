@@ -199,8 +199,6 @@ Add_VHost()
     echo "==========================="
     read hsts_maxage
     fi
-	
-	
 
     vhostdir="/home/wwwroot/${domain}"
     echo "Please enter the directory for the domain: $domain"
