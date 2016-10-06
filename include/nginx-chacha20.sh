@@ -8,12 +8,16 @@ $pagespeedver=1.11.33.2
 
 Install_Nginx()
 {
+<<<<<<< HEAD
     Echo_Blue "Installing Nginx with Pagespeed-v$pagespeedver-beta,Libressl... "
+=======
+    Echo_Blue "Installing Nginx_1.11.4 with Pagespeed-v1.11.33.2-beta,Libressl-2.5.0... "
+>>>>>>> 0e30784... 更新Nginx,libressl的版本
     groupadd www
     useradd -s /sbin/nologin -g www www
 
     cd /etc/ssl/certs
-    openssl dhparam -out dhparam.pem 2048
+    openssl dhparam -out dhparam.pem 4096
 
     cd ${cur_dir}/addone
     if [ -s v$pagespeedver-beta.tar.gz ]; then
@@ -29,6 +33,7 @@ Install_Nginx()
     wget -c https://dl.google.com/dl/page-speed/psol/$pagespeedver.tar.gz
     fi
     
+<<<<<<< HEAD
     if [ -s libressl-$libresslver.tar.gz ]; then
         echo "libressl.tar.gz [found]"
     else
@@ -44,6 +49,23 @@ Install_Nginx()
     fi
     
     tar zxf libressl-$libresslver.tar.gz 
+=======
+    if [ -s libressl-2.5.0.tar.gz ]; then
+        echo "libressl-2.5.0.tar.gz [found]"
+    else
+        echo "Error: libressl-2.4.1.tar.gz not found!!!download now......"
+    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz
+    fi
+    
+    if [ -s nginx-1.11.4.tar.gz ]; then
+        echo "nginx-1.11.4.tar.gz [found]"
+    else
+        echo "Error: nginx-1.11.4.tar.gz not found!!!download now......"
+    wget -c http://nginx.org/download/nginx-1.11.4.tar.gz
+    fi
+    
+    tar zxf libressl-2.5.0.tar.gz
+>>>>>>> 0e30784... 更新Nginx,libressl的版本
 
     mkdir -p /usr/local/nginx/modules
     tar xvfvz v$pagespeedver-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
@@ -51,10 +73,17 @@ Install_Nginx()
     find /usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta/ -type d -exec chmod +rx {} \;
     find /usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta/ -type f -exec chmod +r {} \;
     
+<<<<<<< HEAD
     tar zxf nginx-$nginxver.tar.gz
     cd nginx-$nginxver
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-$libresslver/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta
+=======
+    tar zxf nginx-1.11.4.tar.gz
+    cd nginx-1.11.1
+    ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.4.1/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
+    #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta
+>>>>>>> 0e30784... 更新Nginx,libressl的版本
     make && make install
     cd ../
     
