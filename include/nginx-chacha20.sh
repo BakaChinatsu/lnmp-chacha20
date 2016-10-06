@@ -9,10 +9,14 @@ $pagespeedver=1.11.33.2
 Install_Nginx()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Echo_Blue "Installing Nginx with Pagespeed-v$pagespeedver-beta,Libressl... "
 =======
     Echo_Blue "Installing Nginx_1.11.4 with Pagespeed-v1.11.33.2-beta,Libressl-2.5.0... "
 >>>>>>> 0e30784... 更新Nginx,libressl的版本
+=======
+    Echo_Blue "Installing Nginx with Pagespeed-v$pagespeedver-beta,Libressl... "
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
     groupadd www
     useradd -s /sbin/nologin -g www www
 
@@ -28,6 +32,7 @@ Install_Nginx()
         fi
     if [ -s $pagespeedver.tar.gz ]; then
         echo "pagespeed.tar.gz [found]"
+<<<<<<< HEAD
     else
         echo "Error: pagespeed.tar.gz not found!!!download now......"
     wget -c https://dl.google.com/dl/page-speed/psol/$pagespeedver.tar.gz
@@ -52,20 +57,33 @@ Install_Nginx()
 =======
     if [ -s libressl-2.5.0.tar.gz ]; then
         echo "libressl-2.5.0.tar.gz [found]"
+=======
+    else
+        echo "Error: pagespeed.tar.gz not found!!!download now......"
+    wget -c https://dl.google.com/dl/page-speed/psol/$pagespeedver.tar.gz
+    fi
+    
+    if [ -s libressl-$libresslver.tar.gz ]; then
+        echo "libressl.tar.gz [found]"
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
     else
         echo "Error: libressl-2.4.1.tar.gz not found!!!download now......"
-    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz
+    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$libresslver.tar.gz
     fi
     
-    if [ -s nginx-1.11.4.tar.gz ]; then
-        echo "nginx-1.11.4.tar.gz [found]"
+    if [ -s nginx-$nginxver.tar.gz ]; then
+        echo "nginx.tar.gz [found]"
     else
-        echo "Error: nginx-1.11.4.tar.gz not found!!!download now......"
-    wget -c http://nginx.org/download/nginx-1.11.4.tar.gz
+        echo "Error: nginx.tar.gz not found!!!download now......"
+    wget -c http://nginx.org/download/nginx-$nginxver.tar.gz
     fi
     
+<<<<<<< HEAD
     tar zxf libressl-2.5.0.tar.gz
 >>>>>>> 0e30784... 更新Nginx,libressl的版本
+=======
+    tar zxf libressl-$libresslver.tar.gz 
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
 
     mkdir -p /usr/local/nginx/modules
     tar xvfvz v$pagespeedver-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
@@ -74,16 +92,22 @@ Install_Nginx()
     find /usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta/ -type f -exec chmod +r {} \;
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
     tar zxf nginx-$nginxver.tar.gz
     cd nginx-$nginxver
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-$libresslver/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-$pagespeedver-beta
+<<<<<<< HEAD
 =======
     tar zxf nginx-1.11.4.tar.gz
     cd nginx-1.11.1
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.4.1/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta
 >>>>>>> 0e30784... 更新Nginx,libressl的版本
+=======
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
     make && make install
     cd ../
     

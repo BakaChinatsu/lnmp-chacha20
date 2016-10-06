@@ -7,11 +7,15 @@ $pagespeedver=1.11.33.2
 
 apt-get install libpcre3 libpcre3-dev
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
 wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v$pagespeedver-beta.tar.gz
 wget -c https://dl.google.com/dl/page-speed/psol/$pagespeedver.tar.gz
 wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-$libresslver.tar.gz
 wget -c http://nginx.org/download/nginx-$nginxver.tar.gz
 tar zxf libressl-$libresslver.tar.gz
+<<<<<<< HEAD
 
 mkdir -p /usr/local/nginx/modules
     
@@ -29,6 +33,13 @@ mkdir -p /usr/local/nginx/modules
 tar zxf nginx-1.11.4.tar.gz
 cd nginx-1.11.4
 >>>>>>> 0e30784... 更新Nginx,libressl的版本
+=======
+
+mkdir -p /usr/local/nginx/modules
+    
+tar zxf nginx-$nginxver.tar.gz
+cd nginx-$nginxver
+>>>>>>> a47207e... 修复上个提交所产生的bug，新增变量
 
 groupadd www
 useradd -s /sbin/nologin -g www www
