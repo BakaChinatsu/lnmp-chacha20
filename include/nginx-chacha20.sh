@@ -4,12 +4,12 @@
 
 Install_Nginx()
 {
-    Echo_Blue "Installing Nginx_1.11.1 with Pagespeed-v1.11.33.2-beta,Libressl-2.4.1... "
+    Echo_Blue "Installing Nginx_1.11.4 with Pagespeed-v1.11.33.2-beta,Libressl-2.5.0... "
     groupadd www
     useradd -s /sbin/nologin -g www www
 
     cd /etc/ssl/certs
-    openssl dhparam -out dhparam.pem 2048
+    openssl dhparam -out dhparam.pem 4096
 
     cd ${cur_dir}/addone
     if [ -s v1.11.33.2-beta.tar.gz ]; then
@@ -25,21 +25,21 @@ Install_Nginx()
     wget -c https://dl.google.com/dl/page-speed/psol/1.11.33.2.tar.gz
     fi
     
-    if [ -s libressl-2.4.1.tar.gz ]; then
-        echo "libressl-2.4.1.tar.gz [found]"
+    if [ -s libressl-2.5.0.tar.gz ]; then
+        echo "libressl-2.5.0.tar.gz [found]"
     else
         echo "Error: libressl-2.4.1.tar.gz not found!!!download now......"
-    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.1.tar.gz
+    wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz
     fi
     
-    if [ -s nginx-1.11.1.tar.gz ]; then
-        echo "nginx-1.11.1.tar.gz [found]"
+    if [ -s nginx-1.11.4.tar.gz ]; then
+        echo "nginx-1.11.4.tar.gz [found]"
     else
-        echo "Error: nginx-1.11.1.tar.gz not found!!!download now......"
-    wget -c http://nginx.org/download/nginx-1.11.1.tar.gz
+        echo "Error: nginx-1.11.4.tar.gz not found!!!download now......"
+    wget -c http://nginx.org/download/nginx-1.11.4.tar.gz
     fi
     
-    tar zxf libressl-2.4.1.tar.gz
+    tar zxf libressl-2.5.0.tar.gz
 
     mkdir -p /usr/local/nginx/modules
     tar xvfvz v1.11.33.2-beta.tar.gz -C /usr/local/nginx/modules --no-same-owner
@@ -47,7 +47,7 @@ Install_Nginx()
     find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type d -exec chmod +rx {} \;
     find /usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta/ -type f -exec chmod +r {} \;
     
-    tar zxf nginx-1.11.1.tar.gz
+    tar zxf nginx-1.11.4.tar.gz
     cd nginx-1.11.1
     ./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_v2_module --with-openssl=../libressl-2.4.1/ --add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta --with-http_sub_module --with-ld-opt="-lrt" ${NginxMAOpt}
     #--add-module=/usr/local/nginx/modules/ngx_pagespeed-1.11.33.2-beta

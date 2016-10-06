@@ -1,14 +1,14 @@
 apt-get install libpcre3 libpcre3-dev
 wget -c https://github.com/pagespeed/ngx_pagespeed/archive/v1.11.33.2-beta.tar.gz
 wget -c https://dl.google.com/dl/page-speed/psol/1.11.33.2.tar.gz
-wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.4.1.tar.gz
-wget -c http://nginx.org/download/nginx-1.11.1.tar.gz
-tar zxf libressl-2.4.1.tar.gz
+wget -c http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.0.tar.gz
+wget -c http://nginx.org/download/nginx-1.11.4.tar.gz
+tar zxf libressl-2.5.0.tar.gz
 
 mkdir -p /usr/local/nginx/modules
     
-tar zxf nginx-1.11.1.tar.gz
-cd nginx-1.11.1
+tar zxf nginx-1.11.4.tar.gz
+cd nginx-1.11.4
 
 groupadd www
 useradd -s /sbin/nologin -g www www
