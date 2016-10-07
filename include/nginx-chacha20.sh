@@ -13,7 +13,7 @@ Install_Nginx()
     useradd -s /sbin/nologin -g www www
 
     cd /etc/ssl/certs
-    openssl dhparam -out dhparam.pem 4096
+    openssl dhparam -out dhparam.pem 2048
 
     cd ${cur_dir}/addone
     if [ -s v$pagespeedver-beta.tar.gz ]; then

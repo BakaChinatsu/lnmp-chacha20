@@ -29,7 +29,7 @@
 
 2. 在 <a href="https://ssllabs.com" target="_blank">Qualys SSL Labs</a> 的 <a href="https://ssllabs.com/ssltest" target="_blank">Server Test</a> 中得到 A+
 
-3. 凭借 HTTP2 和 PageSpeed 获得极高的页面加载速度
+3. 凭借 HTTP/2 和 PageSpeed 获得极高的页面加载速度
 
 4. 为百度等对 HTTPS 站点支持不好的搜索引擎进行单独优化
 
