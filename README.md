@@ -3,6 +3,18 @@
 ## WARNING!
 **本项目组不保证此魔改脚本可以稳定工作在所有Linux发行版上，因使用此脚本而导致的任何服务器宕机/冒烟以及数据损毁本项目组概不负责！**
 
+
+##自定义安装组件的版本号
+
+如果想自定义nginx版本号，可以修改下列文件头部这三个自定义变量
+```bash
+vim lnmp-chacha20/nginx-chacha20.sh```
+```bash
+$libresslver=2.5.0
+$nginxver=1.11.4
+$pagespeedver=1.11.33.2
+```
+
 ##获取开发版
 
 `apt-get install git` or `yum install git`
@@ -29,7 +41,7 @@
 
 2. 在 <a href="https://ssllabs.com" target="_blank">Qualys SSL Labs</a> 的 <a href="https://ssllabs.com/ssltest" target="_blank">Server Test</a> 中得到 A+
 
-3. 凭借 SPDY 和 PageSpeed 获得极高的页面加载速度
+3. 凭借 HTTP/2 和 PageSpeed 获得极高的页面加载速度
 
 4. 为百度等对 HTTPS 站点支持不好的搜索引擎进行单独优化
 
