@@ -8,7 +8,7 @@
 
 2. 在Qualys SSL Labs 的 Server Test中得到A+
 
-3. 凭借SPDY和PageSpeed获得极高的页面加载速度
+3. 凭借HTTP2和PageSpeed获得极高的页面加载速度
 
 4. 为百度等对https支持不好的搜索引擎进行单独优化
 

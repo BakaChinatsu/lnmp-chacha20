@@ -1,6 +1,10 @@
 server
-    {   
-		listen 443 ssl http2;
+    {
+	#497跳转
+        listen 80 ssl;
+        listen [::]:80 ssl ipv6only=on;
+	error_page 497 https://$host$request_uri;
+	listen 443 ssl http2;
         listen [::]:443 ssl http2 ipv6only=on;
         server_name example.com;
         index index.html index.htm index.php;
@@ -67,3 +71,4 @@ server
 
         access_log /home/wwwlogs/example_access.log;
     }
+
