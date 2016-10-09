@@ -54,23 +54,23 @@ fi
 
     case "${action}" in
     1|[nN][gG][iI][nN][xX])
-        Upgrade_Nginx 2>&1 | tee /root/upgrade_nginx${Upgrade_Date}.log
+        Upgrade_Nginx 2>&1 | tee ~/upgrade_nginx${Upgrade_Date}.log
     ;;
     2|[mM][yY][sS][qQ][lL])
-        Upgrade_MySQL 2>&1 | tee /root/upgrade_mysq${Upgrade_Date}.log
+        Upgrade_MySQL 2>&1 | tee ~/upgrade_mysq${Upgrade_Date}.log
     ;;
     3|[mM][aA][rR][iI][aA][dD][bB])
-        Upgrade_MariaDB 2>&1 | tee /root/upgrade_mariadb${Upgrade_Date}.log
+        Upgrade_MariaDB 2>&1 | tee ~/upgrade_mariadb${Upgrade_Date}.log
     ;;
     4|[pP][hP][pP])
         Stack="lnmp"
-        Upgrade_PHP 2>&1 | tee /root/upgrade_lnmp_php${Upgrade_Date}.log
+        Upgrade_PHP 2>&1 | tee ~/upgrade_lnmp_php${Upgrade_Date}.log
     ;;
     5|[pP][hP][pP][aA])
-        Upgrade_PHP 2>&1 | tee /root/upgrade_a_php${Upgrade_Date}.log
+        Upgrade_PHP 2>&1 | tee ~/upgrade_a_php${Upgrade_Date}.log
     ;;
     6|[mM]2[mY])
-        Upgrade_MySQL2MariaDB 2>&1 | tee /root/upgrade_mysql2mariadb${Upgrade_Date}.log
+        Upgrade_MySQL2MariaDB 2>&1 | tee ~/upgrade_mysql2mariadb${Upgrade_Date}.log
     ;;
     [eE][xX][iI][tT])
         exit 1
